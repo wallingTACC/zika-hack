@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <h4>Submit a new sample file (tar.gz format)</h4>
+    <h5>Submit a new sample file (tar.gz format)</h5>
     <form enctype="multipart/form-data" name="submissionForm" method="post" action=".">
       {% csrf_token %}
       <div class="row">
@@ -18,7 +18,7 @@
       </div>
       <div class="row">
         <div class="six columns">
-          <span style="display: block; margin-bottom: .5rem; font-weight: 600;">Location</span>
+          <span style="display: block; margin-bottom: 5px; font-weight: 600;">Location</span>
           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuJZ03qG-JPKF63Qrw9sMMlIuMoPXVQ-k"></script>
           <script src="{% static 'js/zikasubmitmap.js' %}"></script>
           <script src="{% static 'js/submissionui.js' %}"></script>
@@ -48,7 +48,7 @@
       </div>
       <div class="row">
         <div class="six columns">
-          <input class="button-primary" type="submit" value="Submit sample" />
+          <input class="submit-button" type="submit" value="Submit sample" />
         </div>
       </div>
     </form>
