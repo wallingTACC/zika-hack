@@ -15,9 +15,26 @@ jQuery.fn.extend({
                     lat: parseFloat($(this).attr('data-lat')),
                     lng: parseFloat($(this).attr('data-lng'))
                 });
+                var label = $(this).attr('data-label');
+                var result = $(this).attr('data-result');
+
+                /*
+                // Choose icons for True/False result, add to repo
+                var image;
+                if (result == 'True') {
+                    image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/blu_circle';
+                }
+                else {
+                    image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/red_circle';
+                }
+                */
+
                 var newMarker = new google.maps.Marker({
                     map: map,
-                    position: newLatLng
+                    position: newLatLng,
+                    title: label +" : "+ result,
+                    // Modify Marker icon
+                    // icon: image
                 });
             });
 
