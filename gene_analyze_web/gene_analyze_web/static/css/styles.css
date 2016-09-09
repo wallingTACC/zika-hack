@@ -31,4 +31,6 @@ input[type="file" i]::-webkit-file-upload-button:hover {
   font-size: 13px !important;
   height: 44px !important;
   line-height: 44px !important;
+  border: 1px solid #33C3F0 !important;
+  color: #33C3F0 !important;
 }
