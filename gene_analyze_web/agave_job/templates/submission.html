@@ -13,7 +13,9 @@
           <label for="{{ form.submission_file.id_for_label }}">Select File (or drag and drop!)</label>
           {{ form.submission_file }}
           <h4>Location</h4>
-          <div class="map">MAP PLACEHOLDER</div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuJZ03qG-JPKF63Qrw9sMMlIuMoPXVQ-k"></script>
+            <script src="zikaSubmitMap.js"></script>
+          <div class="zikasubmitmap">MAP PLACEHOLDER</div>
           <h4> - or - </h4>
           <label for="{{ form.lat.id_for_label }}">Lat</label>
           {{ form.lat }}
