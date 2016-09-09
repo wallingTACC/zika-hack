@@ -8,7 +8,7 @@ from .models import Submission
 # Create your views here.
 
 def index(request):
-    template = loader.get_template('agave_job/index.html')
+    template = loader.get_template('index.html')
     context = RequestContext(request)
     context['submissions'] = Submission.objects.all()
     
@@ -33,4 +33,4 @@ def submission_form(request):
     else:
         form = SubmissionForm()
 
-    return render(request, 'agave_job/submission.html', {'form': form})
+    return render(request, 'submission.html', {'form': form})
