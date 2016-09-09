@@ -14,6 +14,8 @@ class Submission(models.Model):
     lng = models.DecimalField(max_digits=8, decimal_places=3)
     datetime = models.DateTimeField()
     
+    submission_file = models.FileField(null=True)
+    
     def __unicode__(self):
         return "%s - %s" % (self.label, self.datetime)
     
