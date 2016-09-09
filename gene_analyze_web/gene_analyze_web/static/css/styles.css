@@ -44,3 +44,13 @@ input[type="file" i]::-webkit-file-upload-button:hover {
 .page-header h1 {
   margin: 0 2rem;
 }
+
+.page-header img {
+  max-width: 7rem;
+}
+
+@media (min-width: 550px) {
+  .page-header img {
+    margin-left: -9rem;
+  }
+}
