@@ -7,7 +7,7 @@
         <h4>List of submissions</h4>
         <ul>
           {% for sub in submissions %}
-            <li>{{ sub.label }}</li>
+            <li><a href="{% url 'submission_details' sub.pk %}">{{ sub.label }}</a></li>
           {% endfor %}
         </ul>
       </div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 
@@ -34,3 +34,7 @@ def submission_form(request):
         form = SubmissionForm()
 
     return render(request, 'submission.html', {'form': form})
+
+def submission_details(request, submission_id):
+    submission = get_object_or_404(Submission, pk=submission_id)
+    return render(request, 'submission_details.html', {'submission': submission})

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row" style="margin-top: 10%">
+        <h2>{{ submission.label }}</h2>
+    </div>
+    <table class="u-full-width">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Lat</th>
+            <th>Long</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ submission.datetime }}</td>
+            <td>Positive</td>
+            <td>{{ submission.lat }}</td>
+            <td>{{ submission.lng }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        Map placeholder
+    </div>
+    <a href="{% url 'index' %}">Back</a>
+{% endblock %}
