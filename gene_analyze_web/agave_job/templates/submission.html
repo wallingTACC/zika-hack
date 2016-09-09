@@ -14,7 +14,7 @@
           {{ form.submission_file }}
           <h4>Location</h4>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuJZ03qG-JPKF63Qrw9sMMlIuMoPXVQ-k"></script>
-            <script src="zikaSubmitMap.js"></script>
+            <script src="{% static 'js/zikaSubmitMap.min.js' %}"></script>
           <div class="zikasubmitmap">MAP PLACEHOLDER</div>
           <h4> - or - </h4>
           <label for="{{ form.lat.id_for_label }}">Lat</label>
