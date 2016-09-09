@@ -1,3 +1,10 @@
-USERNAME='username'
+USERNAME='walling'
 PW='pw'
-APISERVER='apiserver'
+API_SERVER='https://agave.iplantc.org'
+CLIENT_NAME='zika-hack'
+REFRESH_TOKEN='e193fc952954a08b7c8b5766b846d74',
+AGAVE_API_KEY='pEN_w4cPMqWpuVFfHblHF6KYniMa'
+API_SECRET=''
+DATA_DIR=''
+DATA_SYSTEM=''
+APP_ID='APP_ID'

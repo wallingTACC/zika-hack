@@ -10,7 +10,10 @@ class Submission(models.Model):
     """
     
     label = models.CharField(max_length=100)
+    lat = models.DecimalField(max_digits=8, decimal_places=3)
+    lng = models.DecimalField(max_digits=8, decimal_places=3)
+    datetime = models.DateTimeField()
     
     def __unicode__(self):
-        return "%s " % (self.label)
+        return "%s - %s" % (self.label, self.datetime)
     
