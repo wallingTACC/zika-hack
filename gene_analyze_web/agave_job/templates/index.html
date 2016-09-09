@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+  <script src="{% static 'js/zikasubmitmap.js' %}"></script>
   <div class="row">
       <div class="one-half column">
         <h4>List of submissions</h4>
@@ -10,7 +11,10 @@
           <li data-item="entry" data-lat="{{ sub.lat }}" data-lng="{{ sub.lng }}"><a href="{% url 'submission_details' sub.pk %}">{{ sub.label }}</a></li>
           {% endfor %}
         </ul>
-      </div>
+    </div>
+    <div class="one-half column">
+        <div id="bigmap" class="zikaSubmitMap"></div>
+    </div>
     </div>
 
 <a href='submissionForm/'>Submit Samples</a>

@@ -10,6 +10,17 @@ jQuery.fn.extend({
             var usrLat = $(that).attr("data-lat");
             var usrLng = $(that).attr("data-lng");
 
+            for (var item in $('[data-item="entry"]')) {
+                var newLatLng = new google.maps.LatLng({
+                    lat: parseFloat($(item).attr('data-lat')),
+                    lng: parseFloat($(item).attr('data-lng'))
+                });
+                var newMarker = new google.maps.Marker({
+                    map: map,
+                    position: newLatLng
+                });
+            }
+
             if (usrLat && usrLng) {
                 var usrLatLng = new google.maps.LatLng({
                     lat: parseFloat(usrLat),
