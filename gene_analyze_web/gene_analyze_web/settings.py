@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'crispy_forms',
+    #'crispy_forms',
     'agave_job',
 ]
 
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'gene_analyze_web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['gene_analyze_web/templates'],
+        'DIRS': ['gene_analyze_web/templates', 'gene_analyze_web/gene_analyze_web/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

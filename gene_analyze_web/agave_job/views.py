@@ -18,13 +18,18 @@ def submission_form(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = SubmissionForm(request.POST)
+        form = SubmissionForm(request.POST, request.FILES)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
            
             label = form.cleaned_data['label']
-            Submission.objects.create(label=label)
+            lat = form.cleaned_data['lat']
+            long = form.cleaned_data['long']
+            datetime = form.cleaned_data['datetime']
+            submission_file = form.cleaned_data['submission_file']
+            
+            Submission.objects.create(label=label, datetime=datetime, lat=lat, lng=long, submission_file=submission_file)
             
             # redirect to a new URL:
             return redirect('index')

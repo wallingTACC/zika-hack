@@ -7,10 +7,14 @@ from agavepy.agave import Agave
 import agave_config as ac
 import tempfile
 
-from .models import Submission
+#import django
+#django.setup()
+#from .models import Submission
 
 def connect():
-    my_agave = Agave(api_server=ac.API_SERVER, username=ac.USERNAME, password=ac.PW, client_name=ac.CLIENT_NAME)
+    my_agave = Agave(api_server=ac.API_SERVER, client_name=ac.CLIENT_NAME,
+                     token=ac.ACCESS_TOKEN, refresh_token=ac.REFRESH_TOKEN,
+                     api_key=ac.AGAVE_API_KEY, api_secret=ac.API_SECRET,)
     return my_agave
 
 def push_file(submission):
@@ -28,15 +32,22 @@ def push_file(submission):
         fileToUpload=open(temp))
     
     return response
+
+def list_files(path):
+    agave=connect()
     
-def run_job(submission):
+    result = agave.files.list(systemId=ac.DATA_SYSTEM, filePath=ac.DATA_DIR)     
+    return result
+
+def run_job(submission_label="moby_dict.txt"):
+    
     agave = connect()
     
     job = {
-      "name": submission.label,
+      "name": submission_label,
       "appId": ac.APP_ID,
       "inputs": {
-        "temp": ["agave://my.test.system//{HOME_DIR}/hello.txt".format(HOME_DIR="HOME_DIR")]
+        "temp": ["agave://" + ac.DATA_SYSTEM + "/" + ac.DATA_DIR + "/" + submission_label]
       },
       "archive": True,
       "notifications": [
@@ -51,3 +62,13 @@ def run_job(submission):
     my_job = agave.jobs.submit(body=job)
     my_job
 
+def new_submission(submission):
+    return None
+
+if __name__ == '__main__':
+    """
+    Used for simple debugging
+    """
+    #django.setup()
+    a = 'a'
+    
