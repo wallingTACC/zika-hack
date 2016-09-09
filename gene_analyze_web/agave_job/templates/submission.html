@@ -1,30 +1,58 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-  <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Submit a new sample file (tar.gz format)</h4>
-        <form enctype="multipart/form-data" name="submissionForm" method="post" class="dropzone" action=".">
-          {% csrf_token %}
-          <label for="{{ form.label.id_for_label }}">Submission Label</label>
+    <h4>Submit a new sample file (tar.gz format)</h4>
+    <form enctype="multipart/form-data" name="submissionForm" method="post" class="dropzone" action=".">
+      {% csrf_token %}
+      <div class="row">
+        <div class="six columns">
+          <label for="{{ form.label.id_for_label }}">Label</label>
           {{ form.label }}
-          <label for="{{ form.datetime.id_for_datetime }}">Date / Time</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <label for="{{ form.datetime.id_for_datetime }}">Collection date</label>
           {{ form.datetime }}
-          <label for="{{ form.submission_file.id_for_label }}">Select File (or drag and drop!)</label>
-          {{ form.submission_file }}
-          <h4>Location</h4>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuJZ03qG-JPKF63Qrw9sMMlIuMoPXVQ-k"></script>
-            <script src="{% static 'js/zikasubmitmap.js' %}"></script>
-          <div class="zikasubmitmap">MAP PLACEHOLDER</div>
-          <h4> - or - </h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <span style="display: block; margin-bottom: .5rem; font-weight: 600;">Location</span>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuJZ03qG-JPKF63Qrw9sMMlIuMoPXVQ-k"></script>
+          <script src="{% static 'js/zikasubmitmap.min.js' %}"></script>
+        </div>
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <div class="zikasubmitmap" style="min-height: 300px; margin-bottom:1.5rem; background-color: whitesmoke; display: flex; align-items: center; justify-content: center;">
+            <span>MAP PLACEHOLDER</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="three columns">
           <label for="{{ form.lat.id_for_label }}">Lat</label>
           {{ form.lat }}
+        </div>
+        <div class="row">
+        <div class="three columns">
           <label for="{{ form.long.id_for_label }}">Long</label>
           {{ form.long }}
-          <input type="submit" value="Submit sample file " />
-        </form>
+        </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="six columns">
+          <label for="{{ form.submission_file.id_for_label }}">Select File (or drag and drop!)</label>
+          {{ form.submission_file }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <input type="submit" value="Submit sample" />
+        </div>
+      </div>
+    </form>
 {% endblock %}
 
 
