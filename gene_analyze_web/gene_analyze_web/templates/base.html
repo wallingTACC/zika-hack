@@ -35,16 +35,24 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <div class="container">
     <div class="row" style="margin-top: 10%">
-        <h1>
-            Zika Metagenomic Portal
-        </h1>
-    </div>
-    {% block content %}
+        <div class="ten columns">
+            <h1>
+                Zika Metagenomic Portal
+            </h1>
+        </div>
+        <div class="two columns">
+            <img src="{% static 'images/zika.png' %}" style="width: 150px">
+        </div>
+        {% block content %}
 
-    {% endblock content %}
-    <footer style="margin-top: 4em">Cloudera Cares Zika Hackathon, Texas Advanced Computing Center</footer>
-</div>
-{% block bottom_js %}
-{% endblock %}
+        {% endblock content %}
+        <div class="row" style="text-align: center">
+            <footer style="margin-top: 4em">
+                <img src="{% static 'images/mosquito.jpg' %}"><br/>
+                Cloudera Cares Zika Hackathon, Texas Advanced Computing Center
+            </footer>
+        </div>
+        {% block bottom_js %}
+        {% endblock %}
 </body>
 </html>
