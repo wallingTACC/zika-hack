@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="row">
+      <div class="one-half column" style="margin-top: 25%">
+        <h4>List of submissions</h4>
+        <ul>
+          {% for sub in submissions %}
+            <li>{{ sub.label }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+<a href='submissionForm/'>Submit Samples</a>
+{% endblock %}
