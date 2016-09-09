@@ -16,7 +16,7 @@
         <tbody>
         <tr>
             <td>{{ submission.datetime }}</td>
-            <td>Positive</td>
+            <td>{{ submission.result|yesno:"Positive,Negative,Unknown" }}</td>
             <td>{{ submission.lat }}</td>
             <td>{{ submission.lng }}</td>
         </tr>

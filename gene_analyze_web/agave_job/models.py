@@ -14,7 +14,7 @@ class Submission(models.Model):
     lng = models.DecimalField(max_digits=8, decimal_places=3)
     datetime = models.DateTimeField()
     
-    result = models.BooleanField()
+    result = models.NullBooleanField(null=True)
     
     submission_file = models.FileField(null=True)
     
