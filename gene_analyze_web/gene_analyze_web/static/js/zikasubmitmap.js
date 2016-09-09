@@ -1,7 +1,6 @@
 jQuery.fn.extend({
     zikaSubmitMap: function() {
         return this.each(function() {
-            console.log("init map on", this);
             var that = this;
             map = new google.maps.Map(this, {
               center: {lat: 0,lng: 0},
@@ -39,6 +38,7 @@ jQuery.fn.extend({
                     map.setZoom(5);
                     $(that).attr('data-lat', e.latLng.lat());
                     $(that).attr('data-lng', e.latLng.lng());
+                    $(that).change();
                 });
             }
         });
@@ -46,6 +46,5 @@ jQuery.fn.extend({
 });
 
 $(document).ready(function() {
-    console.log("hello world");
     $(".zikaSubmitMap").zikaSubmitMap();
 });
