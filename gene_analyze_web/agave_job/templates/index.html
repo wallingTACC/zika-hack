@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuJZ03qG-JPKF63Qrw9sMMlIuMoPXVQ-k"></script>
   <script src="{% static 'js/zikasubmitmap.js' %}"></script>
   <div class="row">
       <div class="one-half column">
@@ -13,9 +14,9 @@
         </ul>
     </div>
     <div class="one-half column">
-        <div id="bigmap" class="zikaSubmitMap"></div>
+        <div id="bigmap" class="zikaSubmitMap" style="min-height: 300px; margin-bottom:1.5rem; background-color: whitesmoke; display: flex; align-items: center; justify-content: center;" readonly></div>
     </div>
-    </div>
+  </div>
 
 <a href='submissionForm/'>Submit Samples</a>
 {% endblock %}
