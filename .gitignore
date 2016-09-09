@@ -1,0 +1,7 @@
+.metadata/
+*/.project
+*/.pydevproject
+*.pyc
+sourceme.sh
+agave
+

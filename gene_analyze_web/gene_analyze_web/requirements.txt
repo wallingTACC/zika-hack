@@ -1,0 +1,3 @@
+django
+agavepy
+django-crispy-forms
