@@ -1,16 +1,39 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
   <div class="row">
       <div class="one-half column" style="margin-top: 25%">
         <h4>Submit a new sample file (tar.gz format)</h4>
-        <form enctype="multipart/form-data" name="submissionForm" method="post">
+        <form enctype="multipart/form-data" name="submissionForm" method="post" class="dropzone" action=".">
           {% csrf_token %}
-          {{ form.as_p }}
-          <h4>MAP PLACEHOLDER</h4>
+          <label for="{{ form.label.id_for_label }}">Submission Label</label>
+          {{ form.label }}
+          <label for="{{ form.datetime.id_for_datetime }}">Date / Time</label>
+          {{ form.datetime }}
+          <label for="{{ form.submission_file.id_for_label }}">Select File (or drag and drop!)</label>
+          {{ form.submission_file }}
+          <h4>Location</h4>
+          <div class="map">MAP PLACEHOLDER</div>
+          <h4> - or - </h4>
+          <label for="{{ form.lat.id_for_label }}">Lat</label>
+          {{ form.lat }}
+          <label for="{{ form.long.id_for_label }}">Long</label>
+          {{ form.long }}
           <input type="submit" value="Submit sample file " />
         </form>
       </div>
     </div>
+{% endblock %}
 
-<a href='submissionForm/'>Submit Samples</a>
+
+{% block bottom_js %}
+  <link rel="stylesheet" href="{% static 'css/flatpickr.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/flatpickr.material_blue.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/dropzone.min.css' %}">
+  <script src="{% static 'js/flatpickr.min.js' %}"></script>
+  <script src="{% static 'js/dropzone.min.js' %}"></script>
+  <script>
+    var dateField = document.getElementById('id_datetime');
+    var fp = new Flatpickr(dateField, []);
+  </script>
 {% endblock %}
