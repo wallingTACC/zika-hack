@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
     <div class="row" style="margin-top: 10%">
         <h2>{{ submission.label }}</h2>
@@ -22,7 +23,11 @@
         </tbody>
     </table>
     <div class="row">
-        Map placeholder
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuJZ03qG-JPKF63Qrw9sMMlIuMoPXVQ-k"></script>
+        <script src="{% static 'js/zikasubmitmap.js' %}"></script>
+        <div class="zikaSubmitMap" style="min-height: 300px; margin-bottom:1.5rem; background-color: whitesmoke; display: flex; align-items: center; justify-content: center;" data-lat="{{ submission.lat }}" data-lng="{{ submission.lng }}" readonly>
+            <span>MAP PLACEHOLDER</span>
+        </div>
     </div>
     <a href="{% url 'index' %}">Back</a>
 {% endblock %}
