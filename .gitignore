@@ -5,3 +5,4 @@
 sourceme.sh
 agave
 /gene_analyze_web/db.sqlite3
+/test-file*.txt
